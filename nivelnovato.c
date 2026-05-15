@@ -19,6 +19,21 @@ void limparbufferentrada()
 
 int main() {
     struct territorio territorios[NUM_TERRITORIOS];
-    int totalterritorios = 0; 
-    int opcao;
+    int i;
+
+    //  - - preenchendo os dados dos territórios - - 
+    printf("\nCadastro de Territórios:\n\n");
+
+    // - - O laço será executado a cada 5 vezes, 1 para cada território. 
+    for ( i = 0; i < 5; i++)
+
+    {
+        printf("Território %d:\n", i + 1);
+
+        printf("Digite o nome do território: ");
+        fgets(territorios[i].nome, NUM_TERRITORIOS, stdin); // lendo o nome do território
+        scanf("%s", territorios[i].nome); // lendo o nome do território
+    }
+        
+    
 }
