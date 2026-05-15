@@ -39,6 +39,10 @@ int main() {
         if (scanf("%d", &territorios[i].tropas) != 1) {
             territorios[i].tropas = 0;
         }
+        //limpa o \n que sobrou no buffer após o scanf
+        getchar();
+
+        printf("\n");
 
     }
         // Aqui irei exibir os dados dos territórios cadastrados 
@@ -47,8 +51,8 @@ int main() {
         for ( i = 0; i < NUM_TERRITORIOS; i++)
         {
             printf("Território %d:\n", i + 1);
-            printf("Nome: %s\n", territorios[i].nome);
-            printf("Cor: %s\n", territorios[i].cor);
+            printf("Nome:  %s\n", territorios[i].nome);
+            printf("Cor:  %s\n", territorios[i].cor);
             printf("Número de tropas: %d\n\n", territorios[i].tropas);
         }
         
