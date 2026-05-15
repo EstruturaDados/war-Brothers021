@@ -41,7 +41,22 @@ int main() {
         printf("Digite o número de tropas:\n ");
         fgets(territorios[i].tropas,NUM_TERRITORIOS,stdin); // lendo o número de tropas do território
         scanf("%d", &territorios[i].tropas); // lendo o número de tropas do território 
+
+        limparbufferentrada(); // limpando o buffer de entrada para evitar problemas com fgets
+        printf("\n");
+
     }
+        // Aqui irei exibir os dados dos territórios cadastrados 
         
+        printf("\n - - territórios cadastrados - - \n\n");
+        for ( i = 0; i < NUM_TERRITORIOS; i++)
+        {
+            printf("Território %d:\n", i + 1);
+            printf("Nome: %s\n", territorios[i].nome);
+            printf("Cor: %s\n", territorios[i].cor);
+            printf("Número de tropas: %d\n\n", territorios[i].tropas);
+        }
+        
+        return 0;
     
 }
