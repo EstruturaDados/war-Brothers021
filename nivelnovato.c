@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
 #define NUM_TERRITORIOS 5 //crinando uma constante para o número de territórios
 
@@ -9,3 +9,16 @@ struct territorio {
     char cor[10]; // cor do território
     int tropas; // número de tropas do território 
 };
+// - - função para limpar o buffer de entrada - -
+void limparbufferentrada()
+{
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+// - - função principal - - 
+
+int main() {
+    struct territorio territorios[NUM_TERRITORIOS];
+    int totalterritorios = 0; 
+    int opcao;
+}
