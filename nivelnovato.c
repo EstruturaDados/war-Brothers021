@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define NUM_TERRITORIOS 5 //crinando uma constante para o número de territórios
 
@@ -24,15 +25,17 @@ int main() {
     {
         printf("Território %d:\n", i + 1);
 
-        printf("Digite o nome do território: ");
+        printf("Digite o nome do território:\n ");
         fgets(territorios[i].nome, sizeof territorios[i].nome, stdin);
-        remover_newline(territorios[i].nome);
+        //remove o "\n" que o fgets guarda no final da string
+        territorios[i].nome[strcspn(territorios[i].nome, "\n")] = '\0';
 
         printf("Digite a cor do território: ");
         fgets(territorios[i].cor, sizeof territorios[i].cor, stdin);
-        remover_newline(territorios[i].cor);
+        //remove o "\n" que o fgets guarda no final da string
 
         printf("Digite o número de tropas:\n ");
+
         if (scanf("%d", &territorios[i].tropas) != 1) {
             territorios[i].tropas = 0;
         }
@@ -51,4 +54,4 @@ int main() {
         
         return 0;
     
-}
+} 
