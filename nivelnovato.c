@@ -33,6 +33,14 @@ int main() {
         printf("Digite o nome do território: ");
         fgets(territorios[i].nome, NUM_TERRITORIOS, stdin); // lendo o nome do território
         scanf("%s", territorios[i].nome); // lendo o nome do território
+
+        printf("Digite a cor do território: ");
+        fgets(territorios[i].cor, NUM_TERRITORIOS, stdin); // lendo a cor do território
+        scanf("%s", territorios[i].cor); // lendo a cor do território
+
+        printf("Digite o número de tropas:\n ");
+        fgets(territorios[i].tropas,NUM_TERRITORIOS,stdin); // lendo o número de tropas do território
+        scanf("%d", &territorios[i].tropas); // lendo o número de tropas do território 
     }
         
     
