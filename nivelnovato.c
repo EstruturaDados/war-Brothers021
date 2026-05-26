@@ -65,7 +65,7 @@
         }
         
     }
-// - - função principal - - 
+// - - Nova função: Realizar o ataque - - 
 
 int main() {
     struct territorio territorio[NUM_TERRITORIOS];
