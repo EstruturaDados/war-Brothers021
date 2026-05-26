@@ -98,7 +98,31 @@ while (!ataqueValido) // "! é usado para negar a condição, ou seja o loop con
         continue;
     }
 
+
     escolhaAtacante--; // Ajusta para ínidce baseado em 0 
+
+
+    printf("Digite o índice do território Defensor (1 a %d): \n", quantidade);
+    if (scanf("%d", &escolhaDefensor) != 1) {
+        limparBuffer();
+        printf("Entrada inválida! Tente novamente\n");
+        continue;
+    }
+    limparBuffer();
+
+
+    if (escolhaDefensor < 1 || escolhaDefensor > quantidade) {
+        printf("Índice inválido! Tente noavmente.\n\n");
+        continue;
+    }
+
+    escolhaDefensor--; // Ajusta para índice baseado em 0
+
+// - - Verifica de o atacante e defensor são iguais - -
+    if(escolhaAtacante == escolhaDefensor) {
+        printf("O atacante e defensor não podem ser iguais! Tente novamente.\n\n");
+        continue;
+    }
 }
 
 
