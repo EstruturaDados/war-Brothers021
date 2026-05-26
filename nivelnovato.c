@@ -137,13 +137,30 @@ while (!ataqueValido) // "! é usado para negar a condição, ou seja o loop con
     printf("Atacante - Território %d:\n", escolhaAtacante + 1);
     printf(" Nome: %s\n", territorios[escolhaAtacante].nome);
     printf(" Cor: %s\n", territorios[escolhaAtacante].cor);
-    printf(" Número de Tropas: %d\n", territorios[escolhaAtacante].tropas);
+    printf(" Número de Tropas: %d\n\n", territorios[escolhaAtacante].tropas);
 
 
-    printf("Defensor - território %d:\n", escolhaDefensor + 1);
+    printf("Defensor - Território %d:\n", escolhaDefensor + 1);
     printf(" Nome: %s\n", territorios[escolhaDefensor].nome);
     printf(" Cor: %s\n",territorios[escolhaDefensor].cor);
-    printf(" Número de Tropas: %d", territorios[escolhaDefensor].tropas);
+    printf(" Número de Tropas: %d\n\n", territorios[escolhaDefensor].tropas);
+
+// - - Realiza o ataque - -
+
+    atacar(&territorios[escolhaAtacante], &territorios[escolhaDefensor]);
+
+//  - - Aqui faz aparecer as informações após o ataque - -
+
+    printf("\n - - Após o ataque - -\n");
+    printf("Atacante - Territorio %d:\n", escolhaAtacante + 1);
+    printf(" Nome: %s\n", territorios[escolhaAtacante].nome);
+    printf(" Cor: %s\n", territorios[escolhaAtacante].cor);
+    printf(" Número de Tropas: %d", territorios[escolhaAtacante].tropas);
+    
+    printf("Defensor - Territorio %d: \n", escolhaDefensor + 1);
+    printf(" Nome: %s\n", territorios[escolhaDefensor].nome);
+    printf(" Cor: %s\n", territorios[escolhaDefensor].cor);
+    printf(" Número de tropas: %d\n\n", territorios[escolhaDefensor].tropas);
 
 }
 
