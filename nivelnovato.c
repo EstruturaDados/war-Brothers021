@@ -164,15 +164,33 @@ while (!ataqueValido) // "! é usado para negar a condição, ou seja o loop con
 
 }
 
+// - - - - - - - - - - - - 
+// - - Aqui vamos Liberar a MEMÓRIA - - 
+// - - - - - - - - - - - - 
+
+    void liberarmemoria(territorio* mapa) {
+        if (mapa != NULL) {
+            free(mapa);
+            printf("Memória liberada com sucesso!\n");
+        }
+    }
+
+// - - Função principal - -
+
 int main() {
-    struct territorio territorio[NUM_TERRITORIOS];
-    int i;
+    // aqui vamos iniciar o gerador de números aleatórios
+    srand(time(NULL));
+
+// - -  vamos usar alocação dinâmica - - 
+    int quantidadeTerritoios;
+    territorio* territorios = NULL;
+
 
     //  - - preenchendo os dados dos territórios - - 
     printf("\n - - Cadastro de Territórios: - -\n\n");
 
     // - - O laço será executado a cada 5 vezes, 1 para cada território. 
-    for ( i = 0; i < NUM_TERRITORIOS; i++)
+    for ( int i = 0; i < NUM_TERRITORIOS; i++)
     {
         printf("Território %d:\n", i + 1);
 
@@ -199,7 +217,7 @@ int main() {
         // Aqui irei exibir os dados dos territórios cadastrados 
         
         printf("\n - - territórios cadastrados - - \n\n");
-        for ( i = 0; i < NUM_TERRITORIOS; i++)
+        for ( int i = 0; i < NUM_TERRITORIOS; i++)
         {
             printf("Território %d:\n", i + 1);
             printf("Nome:  %s\n", territorios[i].nome);
