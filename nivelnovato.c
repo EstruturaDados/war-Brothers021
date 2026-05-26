@@ -67,6 +67,43 @@
     }
 // - - Nova função: Realizar o ataque - - 
 
+void rodadaAtaque (territorio* territorios, int quantidade) {
+    int escolhaAtacante, escolhaDefensor;
+    int ataqueValido = 0;
+
+    printf("\n - - Simulando o ataque - -");
+    
+// - - Aqui vamos exibir os territórios disponíveis para ataque - -
+    printf("\nTerritórios disponíveis para ataque:\n\n");
+    for (int i = 0; i < quantidade; i++) {
+        printf("Índice %d -  território %d: %s\n", i, i + 1, territorios[i].nome);
+        printf(" Nome: %s\n", territorios[i].nome);
+        printf(" Cor: %s\n", territorios[i].cor);
+        printf(" Números de Tropas: %d\n", territorios[i].tropas);
+    }
+
+//loop para o úsuario fazer uma escolha válida
+while (!ataqueValido) // "! é usado para negar a condição, ou seja o loop continuará enquanto ataqueValido for falso (0)."
+{
+    printf("Digite o índice do territótio Atacante (1 a %d): \n", quantidade);
+    if (scanf("%d", &escolhaAtacante) != 1) {
+        limparBuffer();
+        printf("Entrada inválida! Tente novamente.\n");
+        continue;
+    }
+    limparbuffer();
+
+    if (escolhaAtacante < 1 || escolhaAtacante > quantidade) {
+        printf("Índice inválido! Tente novamente.\n\n");
+        continue;
+    }
+
+    escolhaAtacante--; // Ajusta para ínidce baseado em 0 
+}
+
+
+}
+
 int main() {
     struct territorio territorio[NUM_TERRITORIOS];
     int i;
