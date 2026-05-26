@@ -240,37 +240,53 @@ int main() {
         limparBuffer();
 
         printf("\n");
+    }
 
-    // - - Vamos Criar um MRNU interativo  - - 
-        int opcao = 0;
+    // - - Vamos Criar um MENU interativo  - - 
+    int opcao = 0;
 
-        while (opcao != 3) {
-            printf(" - - MENU PRINCIPAL - -\n");
-            printf("1. Exebir todos os territórios cadastrados\n");
-            printf("2. Realizar um ataque\n");
-            printf("3. Sair do programa\n");
-            printf(" - - - - - - - - - - - - \n");
-            printf("Escolha uma opção: \n");
+    while (opcao != 3) {
+        printf(" - - MENU PRINCIPAL - -\n");
+        printf("1. Exebir todos os territórios cadastrados\n");
+        printf("2. Realizar um ataque\n");
+        printf("3. Sair do programa\n");
+        printf(" - - - - - - - - - - - - \n");
+        printf("Escolha uma opção: \n");
 
-            if (scanf("%d", &opcao) != 1) {
-                limparBuffer();
-                printf("\nEntrada inválida! Tente novamente.\n\n");
-                continue;
-            }
+        if (scanf("%d", &opcao) != 1) {
             limparBuffer();
+            printf("\nEntrada inválida! Tente novamente.\n\n");
+            continue;
+        }
+        limparBuffer();
 
+        switch (opcao) {
+            case 1: // Aqui irei exibir os dados dos territórios cadastrados 
+                printf("\n - - territórios cadastrados - - \n\n");
+                for ( i = 0; i < quantidadeTerritorios; i++) {
+                    printf("Território %d: \n", i + 1);
+                    printf("Nome: %s \n", territorios[i].nome);
+                    printf("Cor: %s \n", territorios[i].cor);
+                    printf("Número de tropas: %d \n\n", territorios[i].tropas);
+                }
+                break;
+            case 2: // Aqui irei realizar um ataque
+                rodadaAtaque(territorios, quantidadeTerritorios);
+                break;
+
+            case 3: // Aqui irei sair do programa
+                printf("Saindo do programa...\n");
+                break;
+
+            default: 
+                printf("\nopção inválida! Tente novamente. \n\n");
         }
-        // Aqui irei exibir os dados dos territórios cadastrados 
-        
-        printf("\n - - territórios cadastrados - - \n\n");
-        for ( int i = 0; i < quantidadeTerritorios; i++)
-        {
-            printf("Território %d:\n", i + 1);
-            printf("Nome:  %s\n", territorios[i].nome);
-            printf("Cor:  %s\n", territorios[i].cor);
-            printf("Número de tropas: %d\n", territorios[i].tropas);
-        }
-        
-        return 0;
+    }
+
+    // - - libera a memória antes de encerrar o programa - -
+    liberarmemoria(territorios);
+
+    printf("\n - - Obrigado por jogar! - -\n\n");
     
+    return 0;
 } 
