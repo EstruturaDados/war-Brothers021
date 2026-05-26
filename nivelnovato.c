@@ -91,7 +91,7 @@ while (!ataqueValido) // "! é usado para negar a condição, ou seja o loop con
         printf("Entrada inválida! Tente novamente.\n");
         continue;
     }
-    limparbuffer();
+    limparBuffer();
 
     if (escolhaAtacante < 1 || escolhaAtacante > quantidade) {
         printf("Índice inválido! Tente novamente.\n\n");
@@ -182,15 +182,43 @@ int main() {
     srand(time(NULL));
 
 // - -  vamos usar alocação dinâmica - - 
-    int quantidadeTerritoios;
+    int quantidadeTerritorios;
     territorio* territorios = NULL;
+
+    printf("\n");
+    printf(" - - - - - - - - - - - - - - - - - -\n");
+    printf("\n - - Simulando Batalhas - -\n\n");
+    printf(" - - - - - - - - - - - - - - - - - -\n");
+
+
+// - -  vamos criar uma coleta de quantidade de territórios - -
+    printf("\nDigite a quantidade de territórios que deseja criar: \n");
+    while (scanf("%d", &quantidadeTerritorios) != 1 || quantidadeTerritorios <= 0) {
+        limparBuffer();
+        printf("Entrada inválida! Por favor, digite um número inteiro.\n");
+    }
+    limparBuffer(); // Limpa o buffer após a leitura do número
+
+// - - Aqui será a alocação dinâmica de memória - -
+
+    territorios = (territorio*)malloc(quantidadeTerritorios * sizeof(territorio));
+
+// - -  vamos verificar se deu certo a alocação - -
+    if (territorios == NULL) {
+        printf("Erro ao alocar memória! Encerrando o programa.\n");
+        return 1; // Encerra o programa com código de erro
+    }
+
+
+        printf("\n Memória alocada com sucesso opara %d territórios!\n", quantidadeTerritorios);
+
 
 
     //  - - preenchendo os dados dos territórios - - 
     printf("\n - - Cadastro de Territórios: - -\n\n");
-
+    int i;
     // - - O laço será executado a cada 5 vezes, 1 para cada território. 
-    for ( int i = 0; i < NUM_TERRITORIOS; i++)
+    for ( int i = 0; i < quantidadeTerritorios; i++)
     {
         printf("Território %d:\n", i + 1);
 
@@ -213,11 +241,29 @@ int main() {
 
         printf("\n");
 
-    }
+    // - - Vamos Criar um MRNU interativo  - - 
+        int opcao = 0;
+
+        while (opcao != 3) {
+            printf(" - - MENU PRINCIPAL - -\n");
+            printf("1. Exebir todos os territórios cadastrados\n");
+            printf("2. Realizar um ataque\n");
+            printf("3. Sair do programa\n");
+            printf(" - - - - - - - - - - - - \n");
+            printf("Escolha uma opção: \n");
+
+            if (scanf("%d", &opcao) != 1) {
+                limparBuffer();
+                printf("\nEntrada inválida! Tente novamente.\n\n");
+                continue;
+            }
+            limparBuffer();
+
+        }
         // Aqui irei exibir os dados dos territórios cadastrados 
         
         printf("\n - - territórios cadastrados - - \n\n");
-        for ( int i = 0; i < NUM_TERRITORIOS; i++)
+        for ( int i = 0; i < quantidadeTerritorios; i++)
         {
             printf("Território %d:\n", i + 1);
             printf("Nome:  %s\n", territorios[i].nome);
