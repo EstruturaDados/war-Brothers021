@@ -132,6 +132,19 @@ while (!ataqueValido) // "! é usado para negar a condição, ou seja o loop con
     ataqueValido = 1; // Se chegou aqui, a escolha é válida
   }
 
+// - - exibir informações do antes do ataque - -
+    printf("\n  - - Antes do Ataque - -\n");
+    printf("Atacante - Território %d:\n", escolhaAtacante + 1);
+    printf(" Nome: %s\n", territorios[escolhaAtacante].nome);
+    printf(" Cor: %s\n", territorios[escolhaAtacante].cor);
+    printf(" Número de Tropas: %d\n", territorios[escolhaAtacante].tropas);
+
+
+    printf("Defensor - território %d:\n", escolhaDefensor + 1);
+    printf(" Nome: %s\n", territorios[escolhaDefensor].nome);
+    printf(" Cor: %s\n",territorios[escolhaDefensor].cor);
+    printf(" Número de Tropas: %d", territorios[escolhaDefensor].tropas);
+
 }
 
 int main() {
