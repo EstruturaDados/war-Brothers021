@@ -123,8 +123,14 @@ while (!ataqueValido) // "! é usado para negar a condição, ou seja o loop con
         printf("O atacante e defensor não podem ser iguais! Tente novamente.\n\n");
         continue;
     }
-}
 
+// verifica se têm as mesmas cores
+    if(strcmp(territorios[escolhaAtacante].cor, territorios[escolhaDefensor].cor)==0){
+        printf("O atacante e defensor não pode ter a mesma cor!\n\n");
+        continue;
+    }
+    ataqueValido = 1; // Se chegou aqui, a escolha é válida
+  }
 
 }
 
