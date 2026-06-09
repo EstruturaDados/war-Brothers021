@@ -181,7 +181,6 @@ int main() {
     // aqui vamos iniciar o gerador de números aleatórios
     srand(time(NULL));
 
-// - -  vamos usar alocação dinâmica - - 
     int quantidadeTerritorios;
     territorio* territorios = NULL;
 
